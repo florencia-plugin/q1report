@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Q1 Summary & Q2 Plan — Florencia | Plug In Useful</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #111827;
+      background: #f3f4f6;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+      padding: 60px 72px;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-bottom: 3px solid #575afd;
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+    .header h1 {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+    .header .meta { font-size: 14px; color: #6b7280; margin-top: 4px; }
+
+    /* ── CONTEXT BANNER ── */
+    .context-banner {
+      background: #111827;
+      color: #d1d5db;
+      border-radius: 8px;
+      padding: 18px 24px;
+      margin-bottom: 32px;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .context-banner strong { color: #ffffff; }
+
+    /* ── HEADINGS ── */
+    h2 {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: #111827;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      padding-left: 14px;
+      border-bottom: 2px solid #e5e7eb;
+      border-left: 4px solid #575afd;
+    }
+    h3 {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #111827;
+      margin-top: 28px;
+      margin-bottom: 10px;
+      padding-left: 10px;
+      border-left: 3px solid #c4b5fd;
+    }
+    h4 {
+      font-size: 11px;
+      font-weight: 700;
+      color: #575afd;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 22px;
+      margin-bottom: 10px;
+      background: #f5f3ff;
+      padding: 5px 12px;
+      border-radius: 4px;
+    }
+
+    /* ── ROCK CARD h2 OVERRIDE ── */
+    .rock-card h2 {
+      background: none;
+      border-left: none;
+      padding-left: 0;
+      border-bottom: 2px solid #e5e7eb;
+      border-radius: 0;
+      margin-top: 0;
+      font-size: 19px;
+      padding-bottom: 8px;
+      margin-bottom: 4px;
+    }
+
+    /* ── STATUS BADGES ── */
+    .status {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+    .s-track   { background: #d1fae5; color: #065f46; }
+    .s-partial { background: #ede9fe; color: #5b21b6; }
+    .s-miss    { background: #fee2e2; color: #991b1b; }
+    .s-done    { background: #fef3c7; color: #92400e; }
+    .s-proposed{ background: #fce7f3; color: #9d174d; }
+
+    /* ── HIGHLIGHTS BOX ── */
+    .highlights {
+      background: #f5f3ff;
+      border-left: 4px solid #575afd;
+      padding: 20px 24px;
+      border-radius: 0 8px 8px 0;
+    }
+    .highlights ul { list-style: none; padding: 0; }
+    .highlights ul li { padding: 5px 0 5px 24px; position: relative; }
+    .highlights ul li::before { content: "✓"; position: absolute; left: 0; color: #575afd; font-weight: 700; }
+
+    /* ── LISTS ── */
+    ul, ol { padding-left: 22px; margin: 10px 0; }
+    ul li, ol li { margin-bottom: 5px; }
+
+    ul.checklist { list-style: none; padding-left: 0; }
+    ul.checklist li { padding: 6px 0 6px 28px; position: relative; border-bottom: 1px solid #f3f4f6; }
+    ul.checklist li::before { content: "☐"; position: absolute; left: 0; color: #9ca3af; font-size: 16px; }
+
+    /* ── TABLES ── */
+    table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+    th { background: #111827; color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 13px; }
+    td { padding: 9px 14px; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+    tr:nth-child(even) td { background: #f9fafb; }
+    tr:last-child td { border-bottom: none; }
+    td strong { color: #111827; }
+
+    /* ── TREND INDICATORS ── */
+    .up   { color: #059669; font-weight: 700; }
+    .down { color: #e11d48; font-weight: 700; }
+    .flat { color: #6b7280; }
+
+    /* ── STAT CARDS ── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin: 16px 0 20px;
+    }
+    .stat-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 16px 18px;
+      background: #fafafa;
+    }
+    .stat-card .s-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .stat-card .s-value {
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #575afd;
+      line-height: 1.1;
+    }
+    .stat-card .s-trend { font-size: 12px; margin-top: 4px; }
+    .stat-card.highlight { border-color: #575afd; background: #f5f3ff; }
+    .stat-card.positive { border-color: #059669; background: #f0fdf4; }
+    .stat-card.positive .s-value { color: #059669; }
+    .stat-card.caution { border-color: #d97706; background: #fffbeb; }
+    .stat-card.caution .s-value { color: #d97706; }
+    .stat-card.alert { border-color: #e11d48; background: #fff1f2; }
+    .stat-card.alert .s-value { color: #e11d48; }
+
+    /* ── ROCK CARDS ── */
+    .rock-card { border: 1px solid #e5e7eb; border-radius: 10px; padding: 28px 32px; margin: 28px 0; }
+
+    .rock-proposed { border: 1px solid #f9a8d4; border-radius: 10px; padding: 26px 30px; margin: 22px 0; background: #fff7fb; }
+    .rock-proposed h3 { color: #9d174d; margin-top: 0; font-size: 17px; border-left: none; padding-left: 0; }
+
+    /* ── VERDICT PILLS ── */
+    .verdict { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: 4px; margin-bottom: 10px; }
+    .v-no  { background: #fee2e2; color: #991b1b; }
+    .v-yes { background: #d1fae5; color: #065f46; }
+
+    /* ── SECTION NOTE ── */
+    .note { font-size: 13px; color: #6b7280; font-style: italic; margin-top: 8px; }
+
+    /* ── INTERCOM NOTE ── */
+    .inline-note {
+      background: #f5f3ff;
+      border: 1px solid #c4b5fd;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 13px;
+      color: #5b21b6;
+      margin: 12px 0;
+    }
+
+    /* ── MEASURE BAR ── */
+    .measure {
+      background: #f5f3ff;
+      border-left: 3px solid #575afd;
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      font-size: 13px;
+      color: #374151;
+      margin-top: 16px;
+    }
+    .measure strong { color: #111827; }
+
+    /* ── UPDATE BOX ── */
+    .update-box { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px; padding: 20px 24px; margin-top: 16px; }
+    .update-box h2 { background: none; border-left: none; padding-left: 0; border-bottom: none; margin-top: 0; font-size: 17px; color: #92400e; padding-bottom: 0; }
+
+    .stop-box { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 20px 24px; }
+
+    hr { border: none; border-top: 1px solid #e5e7eb; margin: 32px 0; }
+    strong { font-weight: 600; }
+    p { margin: 10px 0; }
+
+    .footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-size: 13px; color: #9ca3af; text-align: center; }
+
+    @media (max-width: 700px) {
+      .page { padding: 32px 20px; margin: 16px; }
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Q1 Summary &amp; Q2 Plan — Florencia</h1>
+    <div class="meta">Plug In Useful &nbsp;|&nbsp; CS, Content &amp; Growth &nbsp;|&nbsp; March 2026</div>
+  </div>
+
+  <!-- CONTEXT BANNER -->
+  <div class="context-banner">
+    <strong>Company context:</strong> Q1 was defined by one goal — earning BFS certification. Plugin AI earned it on March 2. <strong>Plugin SEO earned it on March 19.</strong> Both apps are now BFS certified. With only two strong weeks of business recovery in Q1, the Q2 direction is clear: <strong>be obsessed with retention.</strong> Everything in this report connects back to that.
+  </div>
+
+  <!-- Q1 NUMBERS AT A GLANCE -->
+  <h2>Q1 Numbers at a Glance</h2>
+
+  <h3>Retention &amp; Welcome Calls</h3>
+  <div class="stat-grid">
+    <div class="stat-card positive">
+      <div class="s-label">Attendance Rate</div>
+      <div class="s-value">76%</div>
+      <div class="s-trend"><span class="up">↑</span> from ~35% in Q4</div>
+    </div>
+    <div class="stat-card">
+      <div class="s-label">Calls Attended</div>
+      <div class="s-value">16</div>
+    </div>
+    <div class="stat-card caution">
+      <div class="s-label">No-Shows</div>
+      <div class="s-value">5</div>
+      <div class="s-trend" style="color:#6b7280;">book &amp; ghost pattern</div>
+    </div>
+  </div>
+  <table>
+    <thead><tr><th>Month</th><th>Attended</th><th>No-Show</th><th>Attendance Rate</th></tr></thead>
+    <tbody>
+      <tr><td>January</td><td>4</td><td>2</td><td>67%</td></tr>
+      <tr><td>February</td><td>8</td><td>1</td><td>89%</td></tr>
+      <tr><td>March <em>(partial)</em></td><td>4</td><td>2</td><td>67%</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Knowledge Base — GA4</h3>
+  <div class="stat-grid">
+    <div class="stat-card alert">
+      <div class="s-label">Total Views</div>
+      <div class="s-value">2,724</div>
+      <div class="s-trend"><span class="down">↓ 53%</span> vs Q4 (5,812)</div>
+    </div>
+    <div class="stat-card alert">
+      <div class="s-label">Active Users</div>
+      <div class="s-value">1,739</div>
+      <div class="s-trend"><span class="down">↓ 56%</span> vs Q4 (3,966)</div>
+    </div>
+    <div class="stat-card positive">
+      <div class="s-label">Views / User</div>
+      <div class="s-value">1.57</div>
+      <div class="s-trend"><span class="up">↑</span> vs Q4 (1.47)</div>
+    </div>
+    <div class="stat-card">
+      <div class="s-label">Avg. Engagement</div>
+      <div class="s-value" style="font-size:22px;">17s</div>
+      <div class="s-trend"><span class="flat">~</span> vs Q4 (18s)</div>
+    </div>
+  </div>
+
+  <h3>YouTube</h3>
+  <div class="stat-grid">
+    <div class="stat-card highlight">
+      <div class="s-label">Total Views</div>
+      <div class="s-value">539</div>
+      <div class="s-trend" style="color:#6b7280;">Q1 2026 (partial)</div>
+    </div>
+    <div class="stat-card highlight">
+      <div class="s-label">Watch Time</div>
+      <div class="s-value" style="font-size:22px;">9.6h</div>
+      <div class="s-trend" style="color:#6b7280;">hours watched</div>
+    </div>
+    <div class="stat-card">
+      <div class="s-label">New Subscribers</div>
+      <div class="s-value">+2</div>
+      <div class="s-trend" style="color:#6b7280;">this quarter</div>
+    </div>
+  </div>
+
+  <h3>Support &amp; CSAT</h3>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-label">Fin Tickets Resolved</div>
+      <div class="s-value">58</div>
+    </div>
+    <div class="stat-card">
+      <div class="s-label">Teammate Tickets</div>
+      <div class="s-value">89</div>
+    </div>
+    <div class="stat-card caution">
+      <div class="s-label">Fin CSAT</div>
+      <div class="s-value">66%</div>
+      <div class="s-trend"><span class="down">↓</span> from 70%</div>
+    </div>
+    <div class="stat-card caution">
+      <div class="s-label">Teammate CSAT</div>
+      <div class="s-value" style="font-size:20px;">77.4%</div>
+      <div class="s-trend"><span class="down">↓</span> from 84.6%</div>
+    </div>
+  </div>
+
+  <h3>Intercom Outbound Campaigns</h3>
+  <table>
+    <thead><tr><th>Campaign</th><th>Type · Timing</th><th>Sent</th><th>Open</th><th>Click</th><th>Reply</th></tr></thead>
+    <tbody>
+      <tr><td>Welcome Chat — Test A</td><td>Welcome · Day 1</td><td>132</td><td>18%</td><td>—</td><td>5%</td></tr>
+      <tr><td><strong>Welcome Chat — Test B</strong></td><td>Welcome · Day 1</td><td>154</td><td>20%</td><td>—</td><td><strong>6%</strong></td></tr>
+      <tr><td>QSS Days 30-120 — Test A</td><td>Upsell · Day 30–120</td><td>102</td><td>23%</td><td>5%</td><td>3%</td></tr>
+      <tr><td><strong>QSS Days 30-120 — Test B</strong></td><td>Upsell · Day 30–120</td><td>34</td><td>26%</td><td><strong>9%</strong></td><td><strong>6%</strong></td></tr>
+      <tr><td><strong>Strategy</strong></td><td>Relationship · Day 60+</td><td>66</td><td>24%</td><td>3%</td><td><strong>8%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Cold Email — Summary</h3>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="s-label">Total Sent</div>
+      <div class="s-value" style="font-size:20px;">~7,700</div>
+      <div class="s-trend" style="color:#6b7280;">Jan + Feb (Mar partial)</div>
+    </div>
+    <div class="stat-card positive">
+      <div class="s-label">Best Open Rate</div>
+      <div class="s-value">71.9%</div>
+      <div class="s-trend" style="color:#6b7280;">Comp · Step 2 · VB (Jan)</div>
+    </div>
+    <div class="stat-card alert">
+      <div class="s-label">Conversions</div>
+      <div class="s-value">0</div>
+      <div class="s-trend"><span class="down">all segments</span></div>
+    </div>
+    <div class="stat-card caution">
+      <div class="s-label">Total Cost</div>
+      <div class="s-value" style="font-size:22px;">$411</div>
+      <div class="s-trend" style="color:#6b7280;">+ ~41h time invested</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Q1 HIGHLIGHTS -->
+  <h2>Q1 Highlights</h2>
+  <div class="highlights">
+    <ul>
+      <li><strong>Plugin AI earned BFS badge (March 2)</strong> — contributed through full-cycle testing with Andrii and Miguel across mobile and desktop</li>
+      <li><strong>Plugin SEO earned BFS badge (March 19)</strong> — both apps are now certified</li>
+      <li><strong>Welcome call attendance reached 76%</strong> across Q1 — up from ~35% in Q4</li>
+      <li><strong>QSS website built</strong> with lead capture and two automated email sequences — ready to launch</li>
+      <li><strong>Researched and documented 3 SEO Academy delivery formats</strong> — AI agent identified as most promising; team alignment needed before building</li>
+      <li><strong>Cold email experiment concluded</strong> — full test, valuable learnings, zero conversions; not continuing</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- ── ROCK 1 ── -->
+  <div class="rock-card">
+    <h2>Rock 1 — Improve Retention &amp; Onboarding Conversions</h2>
+    <span class="status s-partial">In Progress</span>
+
+    <p>Rather than rushing to build, this quarter focused on researching the right delivery format for the SEO Academy before committing to development. The Academy is a structured education layer — blog articles, in-app videos, knowledge base articles, Fin responses — designed to help customers understand and act on their SEO issues so they stay and get real value from the app. Three delivery approaches were evaluated and documented before picking a direction.</p>
+
+    <h3>SEO Academy — 3 Delivery Approaches Evaluated</h3>
+
+    <h4>Approach 1 — Videos &amp; Blog Posts</h4>
+    <span class="verdict v-no">Not the primary solution</span>
+    <table>
+      <thead><tr><th>Pros</th><th>Cons</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Visual — better than text for explaining complex UI steps</td>
+          <td>Duplicates what's already in help articles — little added value</td>
+        </tr>
+        <tr>
+          <td>In-app accessible — users don't need to leave the tool</td>
+          <td>Static and costly — breaks whenever the UI changes</td>
+        </tr>
+        <tr><td></td><td>No personalization — same content for every user regardless of their store's actual issues</td></tr>
+      </tbody>
+    </table>
+
+    <h4>Approach 2 — Intercom Fin with Contextual Buttons</h4>
+    <span class="verdict v-no">Not the primary solution</span>
+    <table>
+      <thead><tr><th>Pros</th><th>Cons</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Custom entry points — opening message triggered by a specific button (e.g. "help with meta tags")</td>
+          <td><strong>Cannot read or analyze URLs</strong> — a dealbreaker for an SEO tool</td>
+        </tr>
+        <tr>
+          <td>Can generate examples if the user provides a product title</td>
+          <td>Complex setup: tags → workflows → snippets → coded buttons in app</td>
+        </tr>
+        <tr><td></td><td>No way to give Fin different instructions per button; relies on one global knowledge base</td></tr>
+      </tbody>
+    </table>
+
+    <h4>Approach 3 — Custom AI Agent (Internal Build)</h4>
+    <span class="verdict v-yes">Most promising — alignment needed</span>
+    <table>
+      <thead><tr><th>Pros</th><th>Cons</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Can be programmed with specific SEO logic (length, keywords, accessibility rules)</td>
+          <td>Higher initial development and integration effort</td>
+        </tr>
+        <tr><td>Can read and analyze a customer's page URL in real time — unlike Fin</td><td></td></tr>
+        <tr><td>True SEO expertise, not general-purpose AI responses</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <p>We need to decide which path to take and make sure the whole team is aligned and walking in the same direction before we build. Andrii has an internal testing environment ready to evaluate approaches safely before shipping.</p>
+
+    <hr>
+
+    <h3>Content &amp; Campaigns This Quarter</h3>
+
+    <h4>Knowledge Base — GA4 Comparison (Q1 vs Q4)</h4>
+
+    <div class="stat-grid">
+      <div class="stat-card alert">
+        <div class="s-label">Total Views</div>
+        <div class="s-value">2,724</div>
+        <div class="s-trend"><span class="down">↓ 53%</span> vs Q4 (5,812)</div>
+      </div>
+      <div class="stat-card alert">
+        <div class="s-label">Active Users</div>
+        <div class="s-value">1,739</div>
+        <div class="s-trend"><span class="down">↓ 56%</span> vs Q4 (3,966)</div>
+      </div>
+      <div class="stat-card positive">
+        <div class="s-label">Views / User</div>
+        <div class="s-value">1.57</div>
+        <div class="s-trend"><span class="up">↑</span> vs Q4 (1.47)</div>
+      </div>
+      <div class="stat-card">
+        <div class="s-label">Avg. Engagement</div>
+        <div class="s-value" style="font-size:22px;">17s</div>
+        <div class="s-trend"><span class="flat">~</span> vs Q4 (18s)</div>
+      </div>
+    </div>
+
+    <p class="note">Note: Q4 was previously tracked via Intercom. Both figures here are from GA4 for accurate comparison. The traffic drop tracks with the install decline since mid-Q3 2025 — fewer users in the app means fewer users reaching support articles. Views per active user improved, which means the content quality is holding.</p>
+    <p class="note">Q1 data is not yet complete — to be updated the day before the meeting.</p>
+
+    <h4>Top Articles — Q1 2026</h4>
+    <table>
+      <thead><tr><th>#</th><th>Article</th><th>Views</th><th>Active Users</th><th>Avg. Engagement</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>How to Fix Shopify SEO Problems: Page Title Tags</td><td>396</td><td>205</td><td>42s</td></tr>
+        <tr><td>2</td><td>Plug In Useful Help Articles (homepage)</td><td>345</td><td>292</td><td>—</td></tr>
+        <tr><td>3</td><td>How to Fix Shopify SEO Problems: Images and Objects</td><td>208</td><td>131</td><td>18s</td></tr>
+        <tr><td>4</td><td>Home | Plug In Useful Help Articles</td><td>129</td><td>118</td><td>—</td></tr>
+        <tr><td>5</td><td>Plug In SEO | Plug In Useful Help Articles</td><td>90</td><td>56</td><td>7s</td></tr>
+        <tr><td>6</td><td>How to Fix Shopify SEO Problems: META Description</td><td>83</td><td>57</td><td>21s</td></tr>
+        <tr><td>7</td><td>How to Fix Shopify SEO Problems: Page Headings</td><td>69</td><td>46</td><td>34s</td></tr>
+        <tr><td>8</td><td>Generating SEO Titles &amp; Descriptions with AI</td><td>49</td><td>27</td><td>14s</td></tr>
+        <tr><td>9</td><td>How to Fix Shopify SEO Problems: URLs</td><td>46</td><td>35</td><td>30s</td></tr>
+        <tr><td>10</td><td>How to Fix Page Heading - Invalid Tag</td><td>40</td><td>25</td><td>28s</td></tr>
+      </tbody>
+    </table>
+    <p>The same three topics dominate: <strong>title tags, images, meta descriptions</strong>. These are the clearest signals of where customers are confused — and where SEO Academy content should focus first in Q2.</p>
+
+    <h4>YouTube</h4>
+    <div class="stat-grid">
+      <div class="stat-card highlight">
+        <div class="s-label">Total Views</div>
+        <div class="s-value">539</div>
+        <div class="s-trend" style="color:#6b7280;">Q1 2026 (partial)</div>
+      </div>
+      <div class="stat-card highlight">
+        <div class="s-label">Watch Time</div>
+        <div class="s-value" style="font-size:22px;">9.6h</div>
+        <div class="s-trend" style="color:#6b7280;">hours watched</div>
+      </div>
+      <div class="stat-card">
+        <div class="s-label">New Subscribers</div>
+        <div class="s-value">+2</div>
+        <div class="s-trend" style="color:#6b7280;">this quarter</div>
+      </div>
+    </div>
+    <p class="note">To be updated the day before the meeting.</p>
+
+    <ol>
+      <li>Get Found on Google: Plug In SEO for Shopify — <strong>109 views</strong></li>
+      <li>How to Enable App Embeds (Theme Extensions) — <strong>76 views</strong></li>
+      <li>Keyword Studio 2.0: Per-Page View Overview — <strong>74 views</strong></li>
+      <li>Save Time &amp; Get More Traffic: Plug In AI — <strong>48 views</strong></li>
+      <li>Plug In AI Best SEO App for Shopify <em>(uploaded March 16)</em> — <strong>37 views</strong></li>
+    </ol>
+
+    <h4>Fin Responses &amp; Support Quality</h4>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="s-label">Fin Tickets Resolved</div>
+        <div class="s-value">58</div>
+      </div>
+      <div class="stat-card">
+        <div class="s-label">Teammate Tickets</div>
+        <div class="s-value">89</div>
+      </div>
+      <div class="stat-card caution">
+        <div class="s-label">Fin CSAT</div>
+        <div class="s-value">66%</div>
+        <div class="s-trend"><span class="down">↓</span> from 70%</div>
+      </div>
+      <div class="stat-card caution">
+        <div class="s-label">Teammate CSAT</div>
+        <div class="s-value" style="font-size:20px;">77.4%</div>
+        <div class="s-trend"><span class="down">↓</span> from 84.6%</div>
+      </div>
+    </div>
+    <p>CSAT declined this quarter. Main driver: bugs introduced during the BFS development phase. Every Fin response was reviewed and improved through snippets this quarter. Work continues.</p>
+
+    <h4>Intercom Outbound Campaigns</h4>
+    <div class="inline-note">
+      📌 All campaigns paused ~20 days ago during the BFS certification window for Plugin SEO. They will be reactivated now that certification is confirmed.
+    </div>
+    <p>Three campaign types are active, each targeting a different moment in the customer lifecycle:</p>
+    <ul>
+      <li><strong>Welcome</strong> — sent on Day 1 after install. Human intro from Flor, no bots. Goal: start a real conversation and encourage the first scan.</li>
+      <li><strong>QSS Upsell</strong> — sent between Days 30–120. Targets active users who haven't purchased the Quick Start Service. Goal: convert to a paid consultation.</li>
+      <li><strong>Strategy</strong> — sent to engaged users at Day 60+. Offers a free organic growth planning conversation. Goal: deepen the relationship and surface upgrade intent.</li>
+    </ul>
+    <table>
+      <thead><tr><th>Campaign</th><th>Type · Timing</th><th>Message</th><th>Sent</th><th>Open</th><th>Click</th><th>Reply</th></tr></thead>
+      <tbody>
+        <tr><td>Welcome Chat — Test A</td><td>Welcome · Day 1</td><td><em>"I'm Flor. No bots here — just a real person…"</em></td><td>132</td><td>18%</td><td>—</td><td>5%</td></tr>
+        <tr><td>Welcome Chat — Test B</td><td>Welcome · Day 1</td><td>Variant</td><td>154</td><td>20%</td><td>—</td><td><strong>6%</strong></td></tr>
+        <tr><td>QSS Days 30-120 — Test A</td><td>Upsell · Day 30–120</td><td><em>"Rank 3x faster with expert SEO…"</em></td><td>102</td><td>23%</td><td>5%</td><td>3%</td></tr>
+        <tr><td>QSS Days 30-120 — Test B</td><td>Upsell · Day 30–120</td><td>Variant</td><td>34</td><td>26%</td><td><strong>9%</strong></td><td><strong>6%</strong></td></tr>
+        <tr><td>Strategy</td><td>Relationship · Day 60+</td><td><em>"Let's plan your organic growth together…"</em></td><td>66</td><td>24%</td><td>3%</td><td><strong>8%</strong></td></tr>
+      </tbody>
+    </table>
+    <p>Strongest performers: Welcome Chat Test B (6% reply), QSS Test B (9% click / 6% reply), Strategy (8% reply). These are the default versions to restore in Q2. Before reactivating, all copy will be refreshed with the BFS badge and Keyword Studio 2.0 context.</p>
+  </div>
+
+  <!-- ── ROCK 2 ── -->
+  <div class="rock-card">
+    <h2>Rock 2 — Secure Marketing Fundamentals</h2>
+    <span class="status s-track">Completed</span>
+
+    <h3>Lead Capture on the Website — QSS</h3>
+    <p>New QSS website built with lead capture form and two automated email sequences via Zapier:</p>
+    <ul>
+      <li><strong>Email 1:</strong> Offers the SEO PDF guide and Quick Start Service</li>
+      <li><strong>Email 2:</strong> Promotes Plugin SEO and Plugin AI</li>
+    </ul>
+    <p>Site is in staging. Production deploy pending — one step, coordinating with Mike.</p>
+
+    <h3>SEO Monitoring — Ahrefs</h3>
+    <p>Started regular monitoring of domain ranking and core SEO health via Ahrefs. A structured reporting cadence will be defined in Q2.</p>
+
+    <h3>UTM Tracking for QSS <em style="font-weight:400;">(shared with Pablo)</em></h3>
+    <p>Pablo handles UTM creation. Florencia built the QSS website and lead capture forms to receive tracked traffic. Not yet active — pending website go-live.</p>
+  </div>
+
+  <!-- ── ROCK 3 ── -->
+  <div class="rock-card">
+    <h2>Rock 3 — Increase Upsells</h2>
+    <span class="status s-miss">No Advance This Quarter</span>
+
+    <h3>Plugin SEO Expansion</h3>
+    <p>No measurable improvement in expansion this quarter. The Keyword Studio 2.0 launch was the main opportunity for upsell, but no noticeable increase in upgrades was recorded. Identified as a priority for Q2.</p>
+
+    <h3>Cross-Sells <em style="font-weight:400;">(shared with Pablo)</em></h3>
+    <p>No advance this quarter. Cross-sell infrastructure (app bundling via Mantle) is being developed by Pablo and Andrii. Florencia's role will be defined once the tooling is in place.</p>
+  </div>
+
+  <!-- ── ROCK 4 ── -->
+  <div class="rock-card">
+    <h2>Rock 4 — Continue Customer Feedback Loop</h2>
+    <span class="status s-track">On Track</span>
+
+    <h3>Welcome Call Reporting</h3>
+    <div class="stat-grid">
+      <div class="stat-card positive">
+        <div class="s-label">Q1 Attendance</div>
+        <div class="s-value">76%</div>
+        <div class="s-trend"><span class="up">↑</span> from ~35% in Q4</div>
+      </div>
+      <div class="stat-card">
+        <div class="s-label">Calls Attended</div>
+        <div class="s-value">16</div>
+      </div>
+      <div class="stat-card caution">
+        <div class="s-label">No-Shows</div>
+        <div class="s-value">5</div>
+        <div class="s-trend" style="color:#6b7280;">book &amp; ghost pattern</div>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Month</th><th>Attended</th><th>No-Show</th><th>Rate</th></tr></thead>
+      <tbody>
+        <tr><td>January</td><td>4</td><td>2</td><td>67%</td></tr>
+        <tr><td>February</td><td>8</td><td>1</td><td>89%</td></tr>
+        <tr><td>March <em>(partial)</em></td><td>4</td><td>2</td><td>67%</td></tr>
+      </tbody>
+    </table>
+    <p>Key drivers: Calendly reminder sequences, the extended 25-minute format with store access setup for Keyword Studio 2.0, and more proactive follow-up. No-shows are merchants who book and simply don't appear — they don't cancel in advance. This pattern needs to be addressed in Q2.</p>
+
+    <h3>Support Ticket Trends</h3>
+    <p>Top recurring issues identified this quarter:</p>
+    <ul>
+      <li>Schema errors in Plugin SEO</li>
+      <li>Bulk edition problems in Plugin SEO</li>
+      <li>Customer section confused with Shopify's native section</li>
+      <li>GSC connection issues</li>
+      <li>Requests for more automation</li>
+    </ul>
+    <p>These patterns have been shared with Andrii and Miguel and are actively being addressed.</p>
+
+    <h3>FAQs &amp; Support Articles</h3>
+    <p>No new articles created this quarter — no new features were shipped. Existing articles remain accurate and continue to track the highest-friction areas (title tags, images, meta descriptions).</p>
+  </div>
+
+  <!-- ── ROCK 5 ── -->
+  <div class="rock-card">
+    <h2>Rock 5 — Boost New User Acquisition</h2>
+    <span class="status s-done">Concluded — Not Continuing</span>
+
+    <p>Q1 was a full test of cold email as an acquisition channel. After three months across three segments (New Stores, Established Stores, Competitive/Avada/SearchPie), and significant iteration on copy, subjects, structure, and send cadence — <strong>zero conversions were recorded</strong>. Stopping after March.</p>
+
+    <h3>Campaign Breakdown by Segment, Step &amp; Variant</h3>
+    <table style="font-size:12px;">
+      <thead>
+        <tr><th>Period</th><th>Segment</th><th>Step</th><th>V</th><th>Gift / Offer</th><th>Direct Link</th><th>Sent</th><th>OR</th><th>CR</th></tr>
+      </thead>
+      <tbody>
+        <tr style="background:#111827;"><td colspan="9" style="color:#fff;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;padding:6px 14px;">January — Foundation &nbsp;·&nbsp; ~2,800 total sends &nbsp;·&nbsp; OR avg ~50% &nbsp;·&nbsp; Deliverability strong</td></tr>
+        <tr><td>Jan</td><td>New Stores</td><td>1</td><td>A</td><td>Yes — Guide</td><td>No</td><td>278</td><td>33.4%</td><td>0%</td></tr>
+        <tr><td>Jan</td><td>New Stores</td><td>1</td><td>B</td><td>No</td><td>Yes — App</td><td>21</td><td>14.2%</td><td><strong class="up">4.7%</strong></td></tr>
+        <tr><td>Jan</td><td>New Stores</td><td>2</td><td>A</td><td>No</td><td>Yes — App</td><td>124</td><td>42.7%</td><td>0%</td></tr>
+        <tr><td>Jan</td><td>New Stores</td><td>2</td><td>B</td><td>No</td><td>Yes — App</td><td>108</td><td>25.9%</td><td>0.9%</td></tr>
+        <tr><td>Jan</td><td>Est. Stores</td><td>1</td><td>A</td><td>No</td><td>Yes — App</td><td>221</td><td>40.7%</td><td>0%</td></tr>
+        <tr><td>Jan</td><td>Est. Stores</td><td>1</td><td>B</td><td>No</td><td>Yes — App</td><td>130</td><td>33%</td><td>0%</td></tr>
+        <tr><td>Jan</td><td>Est. Stores</td><td>2</td><td>A</td><td>No</td><td>Yes — QSS</td><td>114</td><td>42.9%</td><td>0.9%</td></tr>
+        <tr><td>Jan</td><td>Est. Stores</td><td>2</td><td>B</td><td>No</td><td>Yes — QSS</td><td>195</td><td>41%</td><td>0%</td></tr>
+        <tr><td>Jan</td><td>Competitive</td><td>1</td><td>A</td><td>Yes</td><td>No</td><td>416</td><td>51%</td><td>0%</td></tr>
+        <tr><td>Jan</td><td>Competitive</td><td>1</td><td>B</td><td>Yes — Glossary</td><td>Yes — App + PDF</td><td>83</td><td>57.8%</td><td>0%</td></tr>
+        <tr><td>Jan</td><td>Competitive</td><td>2</td><td>A</td><td>No</td><td>Yes — App</td><td>372</td><td>41.9%</td><td>0.3%</td></tr>
+        <tr><td>Jan</td><td>Competitive</td><td>2</td><td>B</td><td>No</td><td>Yes — App</td><td>82</td><td><strong class="up">71.9%</strong></td><td>0%</td></tr>
+        <tr><td>Jan</td><td>Competitive</td><td>3</td><td>A</td><td>Yes</td><td>Yes — PDF</td><td>212</td><td>46.2%</td><td>0%</td></tr>
+        <tr><td>Jan</td><td>Competitive</td><td>3</td><td>B</td><td>Yes</td><td>Yes — PDF + App</td><td>236</td><td>31.3%</td><td>0.85%</td></tr>
+        <tr style="background:#111827;"><td colspan="9" style="color:#fff;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;padding:6px 14px;">February — Scale Attempt &nbsp;·&nbsp; ~4,900 total sends &nbsp;·&nbsp; OR dropped to 13–15% (spam filter issue fixed mid-month)</td></tr>
+        <tr><td>Feb</td><td>New Stores <em>(Control)</em></td><td>1</td><td>A</td><td>No</td><td>Yes — App</td><td>336</td><td>14.6%</td><td>1.2%</td></tr>
+        <tr><td>Feb</td><td>New Stores <em>(Control)</em></td><td>1</td><td>B</td><td>No</td><td>Yes — App</td><td>158</td><td>13.3%</td><td>0%</td></tr>
+        <tr><td>Feb</td><td>New Stores <em>(Test — HBR)</em></td><td>1</td><td>A</td><td>No</td><td>Yes — App</td><td>126</td><td>9.5%</td><td>0%</td></tr>
+        <tr><td>Feb</td><td>New Stores <em>(Test — HBR)</em></td><td>1</td><td>B</td><td>No</td><td>Yes — App</td><td>84</td><td>10.7%</td><td>0%</td></tr>
+        <tr><td>Feb</td><td>Est. Stores <em>(Control — HBR)</em></td><td>1</td><td>A</td><td>No</td><td>Yes — App</td><td>419</td><td>11.2%</td><td>0.96%</td></tr>
+        <tr><td>Feb</td><td>Est. Stores <em>(Control — HBR)</em></td><td>1</td><td>B</td><td>No</td><td>Yes — App</td><td>158</td><td>10.8%</td><td>—</td></tr>
+        <tr><td>Feb</td><td>Est. Stores <em>(Test)</em></td><td>1</td><td>A</td><td>No</td><td>Yes — App</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>Feb</td><td>Est. Stores <em>(Test)</em></td><td>1</td><td>B</td><td>Yes</td><td>No</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>Feb</td><td>Est. Stores <em>(Test)</em></td><td>1</td><td>C</td><td>No</td><td>Yes — App</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>Feb</td><td>Est. Stores <em>(Test)</em></td><td>2</td><td>A</td><td>No</td><td>Yes — QSS</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>Feb</td><td>Est. Stores <em>(Test)</em></td><td>2</td><td>B</td><td>Yes</td><td>No</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>Feb</td><td>Est. Stores <em>(Test)</em></td><td>2</td><td>C</td><td>No</td><td>Yes — QSS</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>Feb</td><td>Competitive <em>(Control)</em></td><td>1</td><td>A</td><td>No</td><td>Yes — App</td><td>264</td><td>14.8%</td><td>1.14%</td></tr>
+        <tr><td>Feb</td><td>Competitive <em>(Control)</em></td><td>1</td><td>B</td><td>Yes</td><td>No</td><td>13</td><td>30.8%</td><td>0%</td></tr>
+        <tr><td>Feb</td><td>Competitive <em>(Control)</em></td><td>1</td><td>C</td><td>No</td><td>Yes — App</td><td>168</td><td>26.8%</td><td><strong class="up">2.9%</strong></td></tr>
+        <tr><td>Feb</td><td>Competitive <em>(Control)</em></td><td>2</td><td>A</td><td>No</td><td>Yes — App</td><td>354</td><td>11.9%</td><td>0.56%</td></tr>
+        <tr><td>Feb</td><td>Competitive <em>(Control)</em></td><td>2</td><td>B</td><td>Yes</td><td>No</td><td>50</td><td>8%</td><td>0%</td></tr>
+        <tr><td>Feb</td><td>Competitive <em>(Test — HBR)</em></td><td>1</td><td>A</td><td>No</td><td>Yes — App</td><td>575</td><td>18.6%</td><td>1.2%</td></tr>
+        <tr><td>Feb</td><td>Competitive <em>(Test — HBR)</em></td><td>1</td><td>B</td><td>No</td><td>Yes — QSS</td><td>59</td><td>23.8%</td><td>0%</td></tr>
+        <tr style="background:#111827;"><td colspan="9" style="color:#fff;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;padding:6px 14px;">March — Wind-Down (partial) &nbsp;·&nbsp; Plugin AI segment added &nbsp;·&nbsp; Est. stores paused (high bounce rate)</td></tr>
+        <tr><td colspan="9" style="color:#6b7280;font-style:italic;padding:10px 14px;">Final stats (open rate, total sends) to be updated the day before the meeting.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Experiments Run</h3>
+    <ul>
+      <li>Reply-first email format tested — results documented</li>
+      <li>Multiple sequence variations tested across all three segments</li>
+      <li>One-year-old stores campaign launched</li>
+    </ul>
+
+    <h3>Time &amp; Cost</h3>
+    <table>
+      <thead><tr><th>Item</th><th>Monthly</th><th>Q1 Total</th></tr></thead>
+      <tbody>
+        <tr><td>Instantly plan</td><td>$97</td><td>$291</td></tr>
+        <tr><td>Email sends</td><td>$40</td><td>$120</td></tr>
+        <tr><td><strong>Total cost</strong></td><td><strong>$137</strong></td><td><strong>$411</strong></td></tr>
+        <tr><td>Monitoring &amp; iterations</td><td>~2h/week</td><td>~24h</td></tr>
+        <tr><td>Setup (leads, copy, campaigns)</td><td>~5–6h/month</td><td>~17h</td></tr>
+        <tr><td><strong>Total time</strong></td><td></td><td><strong>~41 hours</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Key Learnings</h3>
+    <ul>
+      <li>High open rates don't predict conversion for this audience</li>
+      <li>Deliverability is fragile — one structural change tanks performance</li>
+      <li>Segmentation was correct; the channel itself is not the right fit at this stage</li>
+      <li>Data and process fully documented if the experiment is revisited</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- SCORECARD -->
+  <h2>Q1 Scorecard Summary</h2>
+  <table>
+    <thead><tr><th>Metric</th><th>Q1 2026</th><th>vs. Q4</th></tr></thead>
+    <tbody>
+      <tr><td>Welcome call attendance</td><td>76%</td><td><span class="up">↑ from ~35%</span></td></tr>
+      <tr><td>KB views (GA4)</td><td>2,724 <em>(partial)</em></td><td><span class="down">↓ from 5,812</span></td></tr>
+      <tr><td>KB active users (GA4)</td><td>1,739 <em>(partial)</em></td><td><span class="down">↓ from 3,966</span></td></tr>
+      <tr><td>Views per active user</td><td>1.57</td><td><span class="up">↑ from 1.47</span></td></tr>
+      <tr><td>Fin CSAT</td><td>66%</td><td><span class="down">↓ from 70%</span></td></tr>
+      <tr><td>Teammate CSAT</td><td>77.4%</td><td><span class="down">↓ from 84.6%</span></td></tr>
+      <tr><td>YouTube views</td><td>539 <em>(partial)</em></td><td>—</td></tr>
+      <tr><td>Cold email conversions</td><td>0</td><td>—</td></tr>
+      <tr><td>SEO Academy delivery approach</td><td>3 options evaluated</td><td>Team alignment needed</td></tr>
+      <tr><td>QSS website</td><td>Built, in staging</td><td>Ready to launch</td></tr>
+      <tr><td>BFS — Plugin AI</td><td>✅ Earned March 2</td><td>—</td></tr>
+      <tr><td>BFS — Plugin SEO</td><td>✅ Earned March 19</td><td>—</td></tr>
+    </tbody>
+  </table>
+  <p class="note">KB and YouTube stats to be updated the day before the meeting.</p>
+
+  <hr>
+
+  <!-- Q2 PLAN -->
+  <h2>Q2 2026 Plan</h2>
+  <p>With both Plugin AI and Plugin SEO BFS certified, the company shifts fully to retention in Q2. My work follows the same direction: reactivate what was paused, launch what was built, and bring AI into the customer journey in a targeted way.</p>
+
+  <h2 style="margin-top:40px;">Proposed Q2 Rocks</h2>
+  <p style="margin-bottom:4px;color:#6b7280;font-size:14px;">To be confirmed during the Q2 planning session.</p>
+
+  <!-- ROCK A -->
+  <div class="rock-proposed">
+    <span class="status s-proposed">Rock A</span>
+    <h3>Implement AI in Customer Retention</h3>
+    <ul class="checklist">
+      <li>Offer Claude skills for our customers</li>
+      <li>Add reports to QSS made with AI</li>
+      <li>Design and test an automated SEO health report for premium plan users</li>
+    </ul>
+  </div>
+
+  <!-- ROCK B -->
+  <div class="rock-proposed">
+    <span class="status s-proposed">Rock B</span>
+    <h3>Optimize pluginuseful.com</h3>
+    <ul class="checklist">
+      <li>Add BFS badge across the site</li>
+      <li>Add listicles</li>
+      <li><strong>Core copywriting gap:</strong> Features tell. Benefits sell. But transformations convert. Current copy is feature-descriptive, not transformation-focused — it tells you what the apps do but doesn't make you feel the urgency of why you need them right now. The emotional hook ("more customers finding your store") drives action. A feature list rarely does.</li>
+      <li>Offer an SEO Skill as a lead capture</li>
+      <li>Add FAQ section and FAQ schema markup</li>
+      <li>The homepage has no statistics, no citations, no data — AI engines won't cite a page with no factual anchors. Princeton GEO research shows statistics addition improves AI citation visibility by 25.9%.</li>
+      <li>Add "Supported by a real expert team" — social proof and team credibility signals</li>
+      <li>Add before/after section showing results with QSS or our apps</li>
+      <li>Use Claude skills workflow to produce SEO articles for pluginuseful.com (target: 1/week) — e.g. <em>Shopify SEO Benchmark Report 2026</em></li>
+      <li>Add LLMS.TXT file for AI crawler visibility</li>
+      <li>Check Ahrefs blog for content trends and keyword opportunities</li>
+    </ul>
+  </div>
+
+  <!-- ROCK C -->
+  <div class="rock-proposed">
+    <span class="status s-proposed">Rock C</span>
+    <h3>Bundle Plans &amp; Expansions</h3>
+    <ul class="checklist">
+      <li>In-app banner for QSS promotion</li>
+      <li>Offer an annual plan option at 15–20% discount ($24/mo billed annually) — annual subscribers churn 60–80% less in SaaS benchmarks</li>
+      <li>Add visible usage quota for the AI listings free tier: e.g. "5 of 20 free AI generations used this month" — progress toward the limit creates natural upgrade momentum, not a wall</li>
+      <li>In SEO issue cards, add a "Fix with AI" button that offers a free AI plan trial</li>
+      <li>Add "Hire an Expert" button</li>
+    </ul>
+  </div>
+
+  <!-- ROCK D -->
+  <div class="rock-proposed">
+    <span class="status s-proposed">Rock D</span>
+    <h3>New Onboarding</h3>
+    <ul class="checklist">
+      <li>Redesign onboarding: Intercom banner for the welcome call prompt, native in-app product tour to guide users through setup</li>
+      <li>Rethink Intercom outbound messages for new users</li>
+    </ul>
+  </div>
+
+  <!-- ROCK E -->
+  <div class="rock-proposed">
+    <span class="status s-proposed">Rock E</span>
+    <h3>Run the CSM Function</h3>
+    <ul class="checklist">
+      <li>Host welcome calls</li>
+      <li>Sell and deliver QSS (Quick Start Service)</li>
+      <li>Refine QSS delivery templates and best practices after each engagement</li>
+      <li>Maintain timely response to customer inquiries across Plugin SEO and Plugin AI</li>
+      <li>Represent customers in weekly team calls — bring support trends and friction points to the table</li>
+      <li>Document and share top recurring issues with Andrii and Miguel on an ongoing basis</li>
+      <li>New FAQs and support articles to address common new concerns</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <!-- NOT CONTINUING -->
+  <h2>What's Not Continuing in Q2</h2>
+  <div class="stop-box">
+    <table>
+      <thead><tr><th>Item</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cold email outreach</strong></td><td>Zero conversions after full Q1 test — channel not the right fit at this stage</td></tr>
+        <tr><td><strong>Webinars</strong></td><td>Not prioritized — scalable AI-powered alternatives under evaluation</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr>
+
+  <!-- UPDATE CHECKLIST -->
+  <div class="update-box">
+    <h2>⚠️ Update the Day Before the Meeting</h2>
+    <ul class="checklist" style="margin-top:12px;">
+      <li>Cold email March final stats (open rate, total sends)</li>
+      <li>KB article views and active users — final Q1 GA4 number</li>
+      <li>YouTube views and watch time — final Q1 number</li>
+      <li>AI direction decision — any update before the meeting?</li>
+      <li>QSS website — still in staging or moved live?</li>
+      <li>Any new CSAT data from last week of March</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Report prepared by Florencia &nbsp;|&nbsp; Plug In Useful — CS, Content &amp; Growth &nbsp;|&nbsp; March 2026
+  </div>
+
+</div>
+</body>
+</html>
